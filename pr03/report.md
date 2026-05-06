@@ -9,7 +9,6 @@
 | bob | developers | Разработчик |
 | carol | auditors | Аудитор |
 
-![Пользователи](screens/users.png)
 
 **Поля /etc/passwd (alice):** alice:x:1001:1001::/home/alice:/bin/bash
 - alice - логин
@@ -23,7 +22,6 @@
 
 ## 2. Права chmod/chown
 
-![Права](screens/ls_project.png)
 
 - chmod 750: bob не создал файл (нет w у группы)
 - chmod 770: bob создал hello.py
@@ -31,14 +29,12 @@
 
 ## 3. ACL
 
-![ACL](screens/getfacl.png)
 
 **Команда:** setfacl -m u:carol:r-x /srv/project/code
 **Плюс ACL:** точечная выдача прав без изменения группы
 
 ## 4. sudo-политики
 
-![sudo](screens/sudo.png)
 
 | Пользователь | Команды |
 |--------------|---------|
