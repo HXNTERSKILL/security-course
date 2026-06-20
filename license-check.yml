@@ -1,0 +1,32 @@
+name: License Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  reuse:
+    name: REUSE compliance check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: REUSE compliance check
+        uses: fsfe/reuse-action@v3
+
+  licensee:
+    name: Licensee check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install licensee
+        run: gem install licensee
+
+      - name: Detect license
+        run: licensee detect .
+Add license check CI workflow
